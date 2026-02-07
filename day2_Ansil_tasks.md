@@ -21,4 +21,16 @@ validated the existance of tables
 <img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/899d0f90-f772-4577-a1d6-8182ad805008" />
 
 
+creating dataframe from table
+
+
+the spark code for making df from tables
+
+df_dept = spark.read.table("departments")
+df_dept.show(5)
+df_dept.printSchema()
+
+
+<img width="704" height="471" alt="image" src="https://github.com/user-attachments/assets/3ea9c419-82b6-4644-aa41-c0f2b7538271" />
+
 
