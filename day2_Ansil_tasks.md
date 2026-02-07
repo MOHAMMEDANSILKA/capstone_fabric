@@ -76,5 +76,6 @@ df_dept.printSchema()
 ```python
 df_dept = df_dept.dropDuplicates(["department_id"])
 
-<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/67ba0d15-67b1-4f1c-9a02-835f2c18ef79" />
+```
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/91656f89-c1c1-4376-a436-3c1eb9f0277f" />
 
