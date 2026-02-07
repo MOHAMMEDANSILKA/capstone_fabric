@@ -79,3 +79,14 @@ df_dept = df_dept.dropDuplicates(["department_id"])
 ```
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/91656f89-c1c1-4376-a436-3c1eb9f0277f" />
 
+
+
+### Task 1 – remove records with null primary key
+**Purpose:** Ensure no null primary key .
+```python
+df_dept = df_dept.filter(col("department_id").isNotNull())
+
+
+```
+
+
