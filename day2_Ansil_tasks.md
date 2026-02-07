@@ -37,7 +37,9 @@ creating dataframe from table
 the spark code for making df from tables
 
 df_dept = spark.read.table("departments")
+
 df_dept.show(5)
+
 df_dept.printSchema()
 
 
