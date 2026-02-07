@@ -1,10 +1,35 @@
-Fabric Data Engineering: CSV Ingestion & Transformation
-📂 Task 1: Setup & Ingestion
-Folder Structure: In the Lakehouse Explorer, right-click Files to create a RawData folder.
-Upload: Upload your 4 CSV files into the new directory using the Microsoft Fabric Portal.
-Table Creation: Right-click each CSV > Load to Tables. This registers them as Delta tables.
-SQL Discovery: Navigate to the SQL analytics endpoint; the tables automatically sync under the dbo schema.
-🛠️ Task 2: Data Clean
+#  Task 1: Environment Setup & Ingestion (Completed)
+
+1. Folder Structure
+
+Navigated to the Lakehouse explorer.
+
+Created a new directory under the Files section to act as the landing zone.
+
+Status: Created Files/Landing/SourceData/.
+
+
+3. Uploaded CSVs
+
+   
+Selected the destination folder.
+
+Used the Upload button and successfully brought in the 4 source CSV files.
+
+
+5. Table Promotion (SQL Endpoint)
+
+
+Right-clicked each CSV file and selected Load to Tables.
+
+Defined unique table names for all 4 files.
+
+Result: Verified that the tables have automatically synced and now appear under the dbo schema in the SQL analytics endpoint.
+
+
+
+# Load table into DataFrame
+df = spark.read.table("dbo.your_table_name")
 
 
 folder structure and 4 tables created
