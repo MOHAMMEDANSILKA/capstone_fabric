@@ -200,5 +200,61 @@ df_dept.write \
 
 
 
+# Rest of the 3 tables also like this
+
+
+
+# 2. FINANCE TRANSACTIONS – FINANCIAL VALIDATION
+df_fin = spark.read.table("finance_transactions")
+df_fin = (
+    df_fin
+    .dropDuplicates(["transaction_id"])
+    .filter(col("transaction_id").isNotNull())
+    .withColumn("amount", col("amount").cast("double"))
+    .filter((col("amount") > 0) & (col("amount").isNotNull()))
+    .withColumn("department", upper(trim(col("department"))))
+    .withColumn("status", upper(trim(col("status"))))
+    .withColumn("transaction_date", to_date(col("transaction_date")))
+    .filter(col("transaction_date") <= current_date())
+    .withColumn("risk_flag", when(col("amount") > 100000, "HIGH").otherwise("NORMAL"))
+    .withColumn("created_date", current_timestamp())
+)
+df_fin.write.mode("overwrite").format("delta").saveAsTable("curated_finance_transactions")
+
+# 3. HR EMPLOYEES – WORKFORCE DATA STANDARDIZATION
+df_hr = spark.read.table("hr_employees")
+df_hr = (
+    df_hr
+    .dropDuplicates(["employee_id"])
+    .filter(col("employee_id").isNotNull())
+    .withColumn("employee_name", initcap(trim(col("employee_name"))))
+    .withColumn("department", upper(trim(col("department"))))
+    .withColumn("salary", col("salary").cast("double"))
+    .filter(col("salary") > 0)
+    .withColumn("joining_date", to_date(col("joining_date")))
+    .filter(col("joining_date") <= current_date())
+    .withColumn("employment_status", upper(col("employment_status")))
+    .withColumn("created_date", current_timestamp())
+)
+df_hr.write.mode("overwrite").format("delta").saveAsTable("curated_hr_employees")
+
+# 4. PROCUREMENT ORDERS – VENDOR AND ORDER VALIDATION
+df_proc = spark.read.table("procurement_orders")
+df_proc = (
+    df_proc
+    .dropDuplicates(["order_id"])
+    .filter(col("order_id").isNotNull())
+    .withColumn("vendor_name", upper(trim(col("vendor_name"))))
+    .withColumn("order_amount", col("order_amount").cast("double"))
+    .filter(col("order_amount") > 0)
+    .withColumn("department", upper(trim(col("department"))))
+    .withColumn("order_date", to_date(col("order_date")))
+    .filter(col("order_date") <= current_date())
+    .withColumn("order_status", upper(trim(col("order_status"))))
+    .withColumn("high_value_flag", when(col("order_amount") > 50000, "Y").otherwise("N"))
+    .withColumn("created_date", current_timestamp())
+)
+df_proc.write.mode("overwrite").format("delta").saveAsTable("curated_procurement_orders")
+
 
 
