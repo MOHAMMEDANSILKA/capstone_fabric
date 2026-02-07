@@ -47,10 +47,14 @@ df_dept.printSchema()
 
 
 
+# Data Processing Pipeline: Departments Dataset
 
-Final Write: Save as Curated Delta Table
-python
-df_dept.write \
-    .mode("overwrite") \
-    .format("delta") \
-    .saveAsTable("curated_departments")
+**Target Table:** `curated_departments` (Delta)  
+**Purpose:** Clean, standardize, and enrich raw department data for analytics.
+
+---
+
+### Task 1 – Remove duplicate department records
+**Purpose:** Ensure uniqueness by business key.
+```python
+df_dept = df_dept.dropDuplicates(["department_id"])
