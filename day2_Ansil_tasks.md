@@ -223,9 +223,9 @@ df_fin = (
 )
 df_fin.write.mode("overwrite").format("delta").saveAsTable("curated_finance_transactions")
 ```
-
-```python 
 # 3. HR EMPLOYEES – WORKFORCE DATA STANDARDIZATION
+```python 
+
 df_hr = spark.read.table("hr_employees")
 df_hr = (
     df_hr
@@ -242,9 +242,9 @@ df_hr = (
 )
 df_hr.write.mode("overwrite").format("delta").saveAsTable("curated_hr_employees")
 ```
-
-``` python 
 # 4. PROCUREMENT ORDERS – VENDOR AND ORDER VALIDATION
+``` python 
+
 df_proc = spark.read.table("procurement_orders")
 df_proc = (
     df_proc
