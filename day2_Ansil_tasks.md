@@ -149,4 +149,56 @@ df_dept = df_dept.withColumn(
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/bc5a967d-a1ed-4d15-bdba-028cc45d7751" />
 
 
+### Task 8 – Cast budget to double
+**Purpose:** casting budget to double
+```python
+df_dept = df_dept.withColumn(
+    "budget", col("budget").cast("double")
+)
+
+
+
+
+```
+
+
+
+### Task 9 – Replace negative budgets with NULL
+**Purpose:** replace negative bugget value to NULL
+```python
+df_dept = df_dept.withColumn(
+    "budget",
+    when(col("budget") < 0, None).otherwise(col("budget"))
+)
+
+
+
+
+```
+
+
+### Task 10 – Remove rows with null department name
+**Purpose:** Remove rows with null department name
+```python
+df_dept = df_dept.filter(col("department_name").isNotNull())
+
+
+```
+
+
+### Task 11 – Write Curated Table
+**Purpose:** creating delta tables named curated_departments
+```python
+df_dept.write \
+    .mode("overwrite") \
+    .format("delta") \
+    .saveAsTable("curated_departments")
+
+```
+
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/ed339cb7-25d7-421f-ad0d-a101c639aaeb" />
+
+
+
+
 
