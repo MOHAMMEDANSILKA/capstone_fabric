@@ -31,6 +31,6 @@ df_dept.show(5)
 df_dept.printSchema()
 
 
-<img width="704" height="471" alt="image" src="https://github.com/user-attachments/assets/3ea9c419-82b6-4644-aa41-c0f2b7538271" />
+<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/3ea9c419-82b6-4644-aa41-c0f2b7538271" />
 
 
