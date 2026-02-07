@@ -1,18 +1,10 @@
-agenda 
-
-
-Uploade CSVs in Fabric
-
-Create tables from CSV
-
-table appear under dbo (SQL endpoint)
-
- create DataFrames and clean data
- 
-
- steps:
- 
-task 1: 
+Fabric Data Engineering: CSV Ingestion & Transformation
+📂 Task 1: Setup & Ingestion
+Folder Structure: In the Lakehouse Explorer, right-click Files to create a RawData folder.
+Upload: Upload your 4 CSV files into the new directory using the Microsoft Fabric Portal.
+Table Creation: Right-click each CSV > Load to Tables. This registers them as Delta tables.
+SQL Discovery: Navigate to the SQL analytics endpoint; the tables automatically sync under the dbo schema.
+🛠️ Task 2: Data Clean
 
 
 folder structure and 4 tables created
