@@ -75,3 +75,6 @@ df_dept.printSchema()
 **Purpose:** Ensure uniqueness by business key.
 ```python
 df_dept = df_dept.dropDuplicates(["department_id"])
+
+<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/67ba0d15-67b1-4f1c-9a02-835f2c18ef79" />
+
