@@ -6,6 +6,10 @@ Create tables from CSV
 table appear under dbo (SQL endpoint)
 
  create DataFrames and clean data
+ 
+
+ steps:
+ 
 
 folder structure and 4 tables created
 
@@ -15,3 +19,6 @@ folder structure and 4 tables created
 validated the existance of tables
 
 <img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/899d0f90-f772-4577-a1d6-8182ad805008" />
+
+
+
