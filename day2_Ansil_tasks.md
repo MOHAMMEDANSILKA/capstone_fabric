@@ -205,6 +205,8 @@ df_dept.write \
 
 
 # 2. FINANCE TRANSACTIONS – FINANCIAL VALIDATION
+
+```python
 df_fin = spark.read.table("finance_transactions")
 df_fin = (
     df_fin
@@ -220,7 +222,9 @@ df_fin = (
     .withColumn("created_date", current_timestamp())
 )
 df_fin.write.mode("overwrite").format("delta").saveAsTable("curated_finance_transactions")
+```
 
+```python 
 # 3. HR EMPLOYEES – WORKFORCE DATA STANDARDIZATION
 df_hr = spark.read.table("hr_employees")
 df_hr = (
@@ -237,7 +241,9 @@ df_hr = (
     .withColumn("created_date", current_timestamp())
 )
 df_hr.write.mode("overwrite").format("delta").saveAsTable("curated_hr_employees")
+```
 
+``` python 
 # 4. PROCUREMENT ORDERS – VENDOR AND ORDER VALIDATION
 df_proc = spark.read.table("procurement_orders")
 df_proc = (
@@ -255,6 +261,6 @@ df_proc = (
     .withColumn("created_date", current_timestamp())
 )
 df_proc.write.mode("overwrite").format("delta").saveAsTable("curated_procurement_orders")
-
+```
 
 
