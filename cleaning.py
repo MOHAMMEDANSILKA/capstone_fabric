@@ -77,3 +77,19 @@ proc.write.mode("overwrite").saveAsTable("curated.procurement_cleaned")
 dept.write.mode("overwrite").saveAsTable("curated.department_cleaned")
 
 print("✅ Cleaning Completed")
+
+
+#handling of inconsistent department names
+from pyspark.sql import functions as F
+inconsistent_map = {
+    'Finance': ['FIN', 'Finance_Dept', 'FINANCE'],
+    'HR': ['Human Resources', 'HR-Admin', 'hr'],
+    'IT': ['Information Tech', 'IT_Support', 'Tech'],
+    'Operations': ['OPS', 'Operations_Logistics'],
+    'Sales': ['S&M', 'Sales_Dept']
+}
+
+dept_map = {}
+for standard, variants in inconsistent_map.items():
+    for v in variants:
+        dept_map[v] = standard
