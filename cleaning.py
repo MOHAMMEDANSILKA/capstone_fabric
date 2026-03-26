@@ -5,6 +5,7 @@ from pyspark.sql.functions import *
 # =========================
 finance = spark.read.table("dbo.finance_transactions")
 hr = spark.read.table("dbo.hr_employees")
+
 proc = spark.read.table("dbo.procurement_orders")
 dept = spark.read.table("dbo.departments")
 
